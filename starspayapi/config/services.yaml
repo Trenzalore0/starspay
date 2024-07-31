@@ -19,6 +19,12 @@ services:
             - '../src/DependencyInjection/'
             - '../src/Entity/'
             - '../src/Kernel.php'
+    
+    App\Base\src\Metadata\BaseDriver:
+        arguments:
+            - '%kernel.project_dir%/src/Base/src/Entity'
+        tags:
+            - { name: doctrine.orm.metadata_driver, driver: attribute, prefix: 'App\Base\src\Entity' }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
