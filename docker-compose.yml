@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./starspayapi
+    container_name: paylegend
+    ports:
+      - "8000:8000"  # Ajuste a porta conforme necessário
+    volumes:
+      - ./starspayapi:/var/www/html
+    environment:
+      - DB_HOST=db
+      - DB_USER=user
+      - DB_PASS=357789
+
+  # frontend:
+  #   build:
+  #     context: ./backoffice
+  #   container_name: backoffice
+  #   ports:
+  #     - "3000:3000"  # Ajuste a porta conforme necessário
+
+  db:
+    image: mariadb:11.5-rc
+    container_name: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: '357789'
+      MYSQL_DATABASE: paylegend
+      MYSQL_USER: user
+      MYSQL_PASSWORD: '357789'
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:

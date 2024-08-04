@@ -6,7 +6,7 @@ partner_bundle:
     resource: ../src/Partner/src/Controller/
     type: attribute
 
-transaction_bundle:
-    resource: ../src/Transaction/src/Controller/
-    type: attribute
+# transaction_bundle:
+#     resource: ../src/Transaction/src/Controller/
+#     type: attribute
 
